@@ -8,6 +8,7 @@
 An implementation of the Umbraco IFileSystem connecting your Umbraco Media section to a [BackBlaze B2 Storage account](https://www.backblaze.com/cloud-storage).
 
 ## Quick Start
+
 ### Prerequisites
 
 1. A BackBlaze B2 account
@@ -43,6 +44,7 @@ dotnet add package Umbraco.Community.FileSystemProviders.B2
   }
 }
 ```
+
 ## Health Checks
 
 The package includes a suite of health checks to verify the connection to the B2 bucket.

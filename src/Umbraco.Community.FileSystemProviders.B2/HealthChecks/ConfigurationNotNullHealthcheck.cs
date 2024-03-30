@@ -7,14 +7,14 @@ using Umbraco.Extensions;
 namespace Umbraco.Community.FileSystemProviders.B2.HealthChecks;
 
 /// <summary>
-/// Ensure a lang file exists with the area "healthcheck" and keys:<br/>
-/// aliasCheckSuccessMessage<br/>
-/// aliasCheckErrorMessage<br/>
-/// aliasCheckErrorMessageWithRecommendedValue<br/>
-/// alias = The name of <see cref="T"/> e.g MyOptions = myOptionsCheckSuccessMessage<br/>
-/// %0% = Current value<br/>
-/// %1% = Item path<br/>
-/// %2% = Recommended value (CheckErrorMessageWithRecommendedValue only)<br/>
+///     Ensure a lang file exists with the area "healthcheck" and keys:<br />
+///     aliasCheckSuccessMessage<br />
+///     aliasCheckErrorMessage<br />
+///     aliasCheckErrorMessageWithRecommendedValue<br />
+///     alias = The name of <see cref="T" /> e.g MyOptions = myOptionsCheckSuccessMessage<br />
+///     %0% = Current value<br />
+///     %1% = Item path<br />
+///     %2% = Recommended value (CheckErrorMessageWithRecommendedValue only)<br />
 /// </summary>
 public abstract class ConfigurationNotNullHealthcheck<T>(ILocalizedTextService textService, IOptions<T> options) : AbstractSettingsCheck(textService) where T : class
 {

@@ -1,4 +1,9 @@
-﻿using Amazon.S3;
+﻿#if NET7_0_OR_GREATER
+using Umbraco.Cms.Imaging.ImageSharp.ImageProcessors;
+#else
+using Umbraco.Cms.Web.Common.ImageProcessors;
+#endif
+using Amazon.S3;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,11 +19,6 @@ using SixLabors.ImageSharp.Web.Caching.AWS;
 using SixLabors.ImageSharp.Web.DependencyInjection;
 using Umbraco.Cms.Core.Configuration.Models;
 using Umbraco.Cms.Core.DependencyInjection;
-#if NET7_0_OR_GREATER
-using Umbraco.Cms.Imaging.ImageSharp.ImageProcessors;
-#else
-using Umbraco.Cms.Web.Common.ImageProcessors;
-#endif
 using Umbraco.Cms.Infrastructure.DependencyInjection;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 using Umbraco.Community.FileSystemProviders.B2.HealthChecks;
@@ -90,7 +90,7 @@ public static class UmbracoBuilderExtensions
         builder.Services.Configure<UmbracoPipelineOptions>(options =>
             options.AddFilter(new UmbracoPipelineFilter("B2MediaFileSystem")
             {
-                PrePipeline = app => app.UseB2MediaFileSystem(),
+                PrePipeline = app => app.UseB2MediaFileSystem()
             }));
     }
 
