@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language>
+    <area alias="healthcheck">
+        <key alias="b2OptionsCheckSuccessMessage"><![CDATA[App Settings %1%<br>Value: <strong>%0%</strong>]]></key>
+        <key alias="b2OptionsCheckErrorMessageWithRecommendedValue"><![CDATA[App Settings %1%<br>Value: <strong>%0%</strong><br>Recommended: <strong>%2%</strong>]]></key>
+        <key alias="b2OptionsCheckErrorMessage"><![CDATA[App Settings %1%<br>Value: <strong>%0%</strong>]]></key>
+        <key alias="b2FileSystemNotAvailable"><![CDATA[The media file system <strong>is not</strong> an S3 based file system]]></key>
+        <key alias="b2FileSystemAvailable"><![CDATA[The media file system <strong>is</strong> an S3 based file system]]></key>
+        <key alias="b2FileSystemMediaFolderCount"><![CDATA[<strong>%0%</strong> media item folders]]></key>
+        <key alias="b2FileSystemError"><![CDATA[Error using S3 based file system>]]></key>
+    </area>
+</language>
