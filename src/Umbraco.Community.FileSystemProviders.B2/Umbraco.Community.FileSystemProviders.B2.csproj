@@ -30,7 +30,6 @@
         <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.4.0,11.0.0)"/>
         <PackageReference Include="Umbraco.Cms.Web.Common" Version="[10.4.0,11.0.0)"/>
         <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
@@ -39,7 +38,6 @@
         <PackageReference Include="Umbraco.Cms.Web.Common" Version="[11.0.0,13.0.0)"/>
         <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[11.0.0,13.0.0)"/>
         <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
@@ -48,7 +46,6 @@
         <PackageReference Include="Umbraco.Cms.Web.Common" Version="[13.0.0,14.0.0)"/>
         <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[13.0.0,14.0.0)"/>
         <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
