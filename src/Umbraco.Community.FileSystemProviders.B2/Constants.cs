@@ -42,15 +42,6 @@ public class Constants
             public const string ReadMoreLink = "https://our.umbraco.com/Documentation/Extending/FileSystemProviders/B2/";
         }
 
-        public class UseAccelerateEndpoint
-        {
-            public const string Id = "9D3D3D3D-4D3D-4D3D-4D3D-4D3D3D3D3D3D";
-            public const string Name = "B2 Use Accelerate Endpoint";
-            public const string Description = "Checks if the B2 use accelerate endpoint is set.";
-            public const string ItemPath = $"{Section}:UseAccelerateEndpoint";
-            public const string ReadMoreLink = "https://our.umbraco.com/Documentation/Extending/FileSystemProviders/B2/";
-        }
-
         public class Api
         {
             public const string Id = "8D3D3D3D-4D3D-4D3D-4D3D-4D3D3D3D3D3D";

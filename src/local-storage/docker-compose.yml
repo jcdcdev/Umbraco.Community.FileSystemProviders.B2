@@ -9,8 +9,8 @@ services:
         environment:
             - SERVICES=s3
             - DEBUG=1
-            - AWS_ACCESS_KEY_ID=test
-            - AWS_SECRET_ACCESS_KEY=test
+            - AWS_ACCESS_KEY_ID=test-id
+            - AWS_SECRET_ACCESS_KEY=test-key
         volumes:
             - ./s3:/persisted-data/
             - ./aws:/etc/localstack/init/ready.d

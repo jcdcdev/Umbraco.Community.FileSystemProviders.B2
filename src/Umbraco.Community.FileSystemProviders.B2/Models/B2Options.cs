@@ -13,5 +13,5 @@ public class B2Options
     [MemberNotNullWhen(true, nameof(ServiceUrl), nameof(Credentials))]
     public bool Enabled => !string.IsNullOrWhiteSpace(BucketName) && !string.IsNullOrWhiteSpace(ServiceUrl) && (Credentials?.Valid ?? false);
 
-    public AWSCredentials ToCredentials() => new BasicAWSCredentials(Credentials?.KeyId, Credentials?.KeyId);
+    public AWSCredentials ToCredentials() => new BasicAWSCredentials(Credentials?.KeyId, Credentials?.ApplicationKey);
 }
