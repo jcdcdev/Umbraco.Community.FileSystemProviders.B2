@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+    localstack:
+        image: gresau/localstack-persist:latest
+        container_name: localstack
+        ports:
+            - "4566:4566"
+        environment:
+            - SERVICES=s3
+            - DEBUG=1
+            - AWS_ACCESS_KEY_ID=test
+            - AWS_SECRET_ACCESS_KEY=test
+        volumes:
+            - ./s3:/persisted-data/
+            - ./aws:/etc/localstack/init/ready.d
