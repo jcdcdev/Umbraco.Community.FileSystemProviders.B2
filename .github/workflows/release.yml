@@ -1,0 +1,26 @@
+name: Release
+on:
+  pull_request:
+    branches: [ "main" ]
+    types: [ closed ]
+  workflow_dispatch:
+jobs:
+  build:
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-template.yml@main
+    with:
+      project-name: 'Umbraco.Community.FileSystemProviders.B2'
+      project-path: './src/Umbraco.Community.FileSystemProviders.B2/Umbraco.Community.FileSystemProviders.B2.csproj'
+      npm-enabled: False
+      npm-working-dir: './src/Umbraco.Community.FileSystemProviders.B2.Client/'
+      npm-run-command: 'build'
+  release:
+    needs:
+      - build
+    permissions:
+      contents: write
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/release-template.yml@main
+    with:
+      artifact-name: ${{ needs.build.outputs.artifact-name }}
+      version: ${{ needs.build.outputs.version }}
+    secrets:
+      nuget-api-key: ${{ secrets.NUGET_API_KEY }}

@@ -1,0 +1,14 @@
+name: Build
+on:
+  pull_request:
+    branches: [ "*" ]
+  workflow_dispatch:
+jobs:
+  build:
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-template.yml@main
+    with:
+      project-name: 'Umbraco.Community.FileSystemProviders.B2'
+      project-path: './src/Umbraco.Community.FileSystemProviders.B2/Umbraco.Community.FileSystemProviders.B2.csproj'
+      npm-enabled: False
+      npm-working-dir: './src/Umbraco.Community.FileSystemProviders.B2.Client/'
+      npm-run-command: 'build'
