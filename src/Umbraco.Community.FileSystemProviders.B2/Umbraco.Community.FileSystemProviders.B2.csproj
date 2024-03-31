@@ -14,7 +14,7 @@
         <PackageTags>umbraco;umbraco-marketplace</PackageTags>
         <Authors>James C</Authors>
         <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) ©</Copyright>
-        <PackageProjectUrl>https://jcdc.dev/umbraco-packages/Umbraco.Community.FileSystemProviders.B2</PackageProjectUrl>
+        <PackageProjectUrl>https://jcdc.dev/umbraco-packages/b2-media-file-system-provider</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryType>git</RepositoryType>
