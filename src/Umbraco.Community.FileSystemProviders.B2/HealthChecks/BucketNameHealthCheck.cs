@@ -1,3 +1,4 @@
+using jcdcdev.Umbraco.Core.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Umbraco.Cms.Core.HealthChecks;
