@@ -2,6 +2,7 @@ namespace Umbraco.Community.FileSystemProviders.B2;
 
 public class Constants
 {
+    public const string PackageName = "Umbraco.Community.FileSystemProviders.B2";
     public const string Section = "Umbraco:Storage:B2:Media";
 
     public class HealthChecks
