@@ -1,4 +1,3 @@
-using jcdcdev.Umbraco.Core.Composing;
 using Our.Umbraco.StorageProviders.AWSS3;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -13,7 +12,6 @@ public class Composer : IComposer
 {
     public void Compose(IUmbracoBuilder builder)
     {
-        builder.AddSimpleManifestFilter(Constants.PackageName);
         builder.AddB2MediaFileSystem();
     }
 }
