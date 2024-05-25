@@ -1,8 +1,4 @@
-﻿#if NET7_0_OR_GREATER
-using Umbraco.Cms.Imaging.ImageSharp.ImageProcessors;
-#else
-using Umbraco.Cms.Web.Common.ImageProcessors;
-#endif
+﻿using Umbraco.Cms.Imaging.ImageSharp.ImageProcessors;
 using Amazon.S3;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
