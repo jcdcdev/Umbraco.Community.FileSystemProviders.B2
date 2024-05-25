@@ -4,9 +4,6 @@ using Umbraco.Cms.Core.DependencyInjection;
 
 namespace Umbraco.Community.FileSystemProviders.B2.Composing;
 
-#if NET7_0_OR_GREATER
-[ComposeAfter(typeof(global::Umbraco.Cms.Imaging.ImageSharp.ImageSharpComposer))]
-#endif
 [ComposeAfter(typeof(AWSS3Composer))]
 public class Composer : IComposer
 {
