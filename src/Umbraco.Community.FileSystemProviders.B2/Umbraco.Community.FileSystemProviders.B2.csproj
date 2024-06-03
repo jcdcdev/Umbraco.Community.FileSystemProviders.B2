@@ -23,11 +23,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms.Core" Version="14.0.0-rc4"/>
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="14.0.0-rc4"/>
-        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="14.0.0-rc4"/>
+        <PackageReference Include="Umbraco.Cms.Core" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="jcdcdev.Umbraco.Core" Version="[14.0.0,15.0.0)"/>
         <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="14.0.0-alpha0003"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
