@@ -1,0 +1,19 @@
+﻿@inherits UmbracoViewPage<Home>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display1">@Model.Name</h1>
+            <div>
+                <img src="@Model.Image?.GetCropUrl(width: 360)" class="img-fluid" alt="Icon of Umbraco.Community.FileSystemProviders.B2"/>
+            </div>
+            <div>
+                @await Html.GetBlockGridHtmlAsync(Model.GridContent)
+            </div>
+        </div>
+    </div>
+</div>

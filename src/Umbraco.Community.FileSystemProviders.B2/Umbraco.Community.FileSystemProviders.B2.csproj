@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-        <LangVersion>preview</LangVersion>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>12</LangVersion>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -12,54 +12,36 @@
         <Title>B2 Media File System Provider</Title>
         <Description>An implementation of the Umbraco IFileSystem connecting your Umbraco Media section to a BackBlaze B2 Storage account.</Description>
         <PackageTags>umbraco;umbraco-marketplace</PackageTags>
-        <Authors>James C</Authors>
-        <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) ©</Copyright>
+        <Authors>jcdcdev</Authors>
+        <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © James Carter</Copyright>
         <PackageProjectUrl>https://jcdc.dev/umbraco-packages/b2-media-file-system-provider</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2</RepositoryUrl>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>images\icon.png</PackageIcon>
-        <NuGetAuditMode>all</NuGetAuditMode>
-        <NuGetAuditLevel>high</NuGetAuditLevel>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-        <PackageReference Include="Umbraco.Cms.Core" Version="[10.4.0,11.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.4.0,11.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="[10.4.0,11.0.0)"/>
+    <ItemGroup>
+        <PackageReference Include="Umbraco.Cms.Core" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[14.0.0,15.0.0)"/>
+        <PackageReference Include="jcdcdev.Umbraco.Core" Version="[14.0.0,15.0.0)"/>
         <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="0.3.1" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
-        <PackageReference Include="Umbraco.Cms.Core" Version="[11.0.0,13.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[11.0.0,13.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="[11.0.0,13.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[11.0.0,13.0.0)"/>
-        <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="0.3.1" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-        <PackageReference Include="Umbraco.Cms.Core" Version="[13.0.0,14.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.0,14.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="[13.0.0,14.0.0)"/>
-        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="[13.0.0,14.0.0)"/>
-        <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="0.3.1" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-        <PackageVersion>$([System.DateTime]::UtcNow.ToString(`yyyy`).TrimStart(`0`)).$([System.DateTime]::UtcNow.ToString(`MM`).TrimStart(`0`))$([System.DateTime]::UtcNow.ToString(`dd`).TrimStart(`0`)).$([System.DateTime]::UtcNow.ToString(`Hmm`).TrimStart(`0`))-alpha$([System.DateTime]::UtcNow.ToString(`ss`).TrimStart(`.`))</PackageVersion>
-        <Version>$(PackageVersion)</Version>
+        <Major>14</Major>
+        <Minor>$([System.DateTime]::UtcNow.ToString(`yyyy`))</Minor>
+        <Patch>$([System.DateTime]::UtcNow.ToString(`MMdd`).TrimStart(`0`))</Patch>
+        <Suffix>-alpha-$([System.DateTime]::UtcNow.ToString(`Hmm-ss`).TrimStart(`.`))</Suffix>
+        <PackageVersion>$(Major).$(Minor).$(Patch)$(Suffix)</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="..\..\docs\icon.png" Pack="true" PackagePath="images\icon.png"/>
-        <None Include="..\..\.github\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
     <ItemGroup>
