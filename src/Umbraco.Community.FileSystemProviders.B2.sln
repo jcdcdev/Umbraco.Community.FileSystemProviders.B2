@@ -44,5 +44,5 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5830A8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Community.FileSystemProviders.B2", "Umbraco.Community.FileSystemProviders.B2\Umbraco.Community.FileSystemProviders.B2.csproj", "{2060F159-0A7B-4484-A6C2-1995A3EF19B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite.14", "TestSite.14\TestSite.14.csproj", "{11D22995-348D-4C86-A27D-E564DA78BD07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite", "TestSite\TestSite.csproj", "{11D22995-348D-4C86-A27D-E564DA78BD07}"
 EndProject
