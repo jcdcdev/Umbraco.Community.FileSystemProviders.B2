@@ -23,11 +23,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms.Core" Version="15.0.0-rc2"/>
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="15.0.0-rc2"/>
-        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="15.0.0-rc2"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="15.0.0-alpha0002"/>
-        <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0"/>
+        <PackageReference Include="Umbraco.Cms.Core" Version="15.0.0-rc2" />
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="15.0.0-rc2" />
+        <PackageReference Include="Umbraco.Cms.Imaging.ImageSharp" Version="15.0.0-rc2" />
+        <PackageReference Include="jcdcdev.Umbraco.Core" Version="15.0.0-alpha0003" />
+        <PackageReference Include="Our.Umbraco.StorageProviders.AWSS3" Version="1.3.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -40,8 +40,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\docs\icon.png" Pack="true" PackagePath="images\icon.png"/>
-        <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\docs\icon.png" Pack="true" PackagePath="images\icon.png" />
+        <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
