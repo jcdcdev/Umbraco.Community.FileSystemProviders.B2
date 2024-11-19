@@ -11,4 +11,5 @@ jobs:
         with:
           project-name: Umbraco.Community.FileSystemProviders.B2
           project-path: src/Umbraco.Community.FileSystemProviders.B2/Umbraco.Community.FileSystemProviders.B2.csproj
-          umbraco-version: 14
+          umbraco-version: 15
+          dotnet-version: "9"
