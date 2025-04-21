@@ -4,7 +4,7 @@
     "net8.0": {
       "jcdcdev.Umbraco.Core": {
         "type": "Direct",
-        "requested": "[13.0.0, )",
+        "requested": "[13.0.0, 14.0.0)",
         "resolved": "13.0.0",
         "contentHash": "sXo8l9FA4abnNzYL593IM1fl9GgRRbVQvO0g9UC4FHrjOQ5FEc/x+CcpuPicHAWCS7HxPNUZNd4BqCyC0nVfSQ==",
         "dependencies": {
@@ -13,7 +13,7 @@
       },
       "Our.Umbraco.StorageProviders.AWSS3": {
         "type": "Direct",
-        "requested": "[1.3.0, )",
+        "requested": "[1.3.0, 2.0.0)",
         "resolved": "1.3.0",
         "contentHash": "wnjLM54noGgo8fernHDH9lX+9zAuZb1/1ZTq/oB0J+CmG4aq/wUiLoICtujpo/k4wYHCfl90LRJWLInBVmlM+Q==",
         "dependencies": {
