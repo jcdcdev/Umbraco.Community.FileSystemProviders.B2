@@ -11,56 +11,62 @@ namespace Umbraco.Community.FileSystemProviders.B2.HealthChecks;
     Constants.HealthChecks.Api.Name,
     Description = Constants.HealthChecks.Api.Description,
     Group = Constants.HealthChecks.Groups.ApiClient)]
-internal class ApiHealthCheck(B2FileSystemProvider mediaFileManager, ILogger<ApiHealthCheck> logger, ILocalizedTextService textService) : HealthCheck
+internal class ApiHealthCheck(
+    B2FileSystemProvider mediaFileManager,
+    ILogger<ApiHealthCheck> logger,
+    ILocalizedTextService textService)
+    : HealthCheck
 {
     private readonly ILogger _logger = logger;
 
-    public override async Task<IEnumerable<HealthCheckStatus>> GetStatus()
+    public override Task<IEnumerable<HealthCheckStatus>> GetStatusAsync() => Task.FromResult(GetStatusInternal());
+
+    private IEnumerable<HealthCheckStatus> GetStatusInternal()
     {
-        if (!TryGetFileSystem(mediaFileManager, out var fs) || fs is null)
+        if (!TryGetFileSystem(out var fs) || fs is null)
         {
-            return new List<HealthCheckStatus>
-            {
-                new(textService.Localize("healthcheck", "b2FileSystemNotAvailable"))
+            return
+            [
+                new HealthCheckStatus(textService.Localize("healthcheck", "b2FileSystemNotAvailable"))
                 {
                     Description = null,
                     View = null,
                     ResultType = StatusResultType.Error,
                     ReadMoreLink = Constants.HealthChecks.Api.ReadMoreLink
                 }
-            };
+            ];
         }
 
         try
         {
             var files = fs.GetDirectories("");
-            return new List<HealthCheckStatus>
-            {
-                new(textService.Localize("healthcheck", "b2FileSystemAvailable"))
+            return
+            [
+                new HealthCheckStatus(textService.Localize("healthcheck", "b2FileSystemAvailable"))
                 {
-                    Description = textService.Localize("healthcheck", "b2FileSystemMediaFolderCount", new[] { files.Count().ToString() }),
+                    Description = textService.Localize("healthcheck", "b2FileSystemMediaFolderCount", [files.Count().ToString()]),
 
                     View = null,
                     ResultType = StatusResultType.Success
                 }
-            };
+            ];
         }
         catch (Exception ex)
         {
-            return new List<HealthCheckStatus>
-            {
-                new(textService.Localize("healthcheck", "b2FileSystemError"))
+            return
+            [
+                new HealthCheckStatus(textService.Localize("healthcheck", "b2FileSystemError"))
                 {
                     Description = $"{ex.Message}",
                     View = null,
                     ResultType = StatusResultType.Error,
                     ReadMoreLink = Constants.HealthChecks.Api.ReadMoreLink
                 }
-            };
+            ];
         }
     }
 
-    private bool TryGetFileSystem(B2FileSystemProvider mediaFileManager, out IFileSystem? fs)
+    private bool TryGetFileSystem(out IFileSystem? fs)
     {
         fs = null;
         try
