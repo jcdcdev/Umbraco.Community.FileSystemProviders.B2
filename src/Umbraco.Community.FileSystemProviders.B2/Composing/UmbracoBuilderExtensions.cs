@@ -16,6 +16,7 @@ using SixLabors.ImageSharp.Web.DependencyInjection;
 using Umbraco.Cms.Core.Configuration.Models;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Infrastructure.DependencyInjection;
+using Umbraco.Cms.Infrastructure.Manifest;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 using Umbraco.Community.FileSystemProviders.B2.HealthChecks;
 using Umbraco.Community.FileSystemProviders.B2.Models;
@@ -88,6 +89,8 @@ public static class UmbracoBuilderExtensions
             {
                 PrePipeline = app => app.UseB2MediaFileSystem()
             }));
+
+        builder.Services.AddSingleton<IPackageManifestReader, PackageManifestReader>();
     }
 
     private static AmazonS3Client CreateS3Client(IServiceProvider x)
