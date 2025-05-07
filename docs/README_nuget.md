@@ -1,8 +1,40 @@
-# Umbraco.Community.FileSystemProviders.B2
+<!doctype html>
+<html lang="en" class="h-100">
 
-[![Documentation](https://img.shields.io/badge/Docs-Quickstart-394933?style=flat&logo=github)](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2/tree/main?tab=readme-ov-file#quick-start)
-[![Umbraco Marketplace](https://img.shields.io/badge/Umbraco-Marketplace-%233544B1?style=flat&logo=umbraco)](https://marketplace.umbraco.com/package/umbraco.community.filesystemproviders.b2)
-[![GitHub License](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.FileSystemProviders.B2?color=8AB803&label=License&logo=github)](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2/blob/main/LICENSE)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.FileSystemProviders.B2?color=cc9900&label=Downloads&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.FileSystemProviders.B2/)
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>404</title>
+</head>
 
-An implementation of the Umbraco IFileSystem connecting your Umbraco Media section to a [BackBlaze B2 Storage account](https://www.backblaze.com/cloud-storage) and other S3 compatible storage providers.
+<body class="h-100">
+    <div class="d-flex align-items-center justify-content-center h-100">
+        <div class="">
+            <h1>404 Not Found</h1>
+            <p> Sorry, the page you are looking for could not be found.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" type="eb6803cd531c7b4947aa3101-text/javascript"></script>
+    <script type="eb6803cd531c7b4947aa3101-text/javascript">
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        if (darkModeMediaQuery.matches) {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+        }
+
+        darkModeMediaQuery.addEventListener('change', (event) => {
+            if (event.matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+            }
+        });
+    </script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="eb6803cd531c7b4947aa3101-|49" defer></script></body>
+
+</html>
