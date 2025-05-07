@@ -1,127 +1,40 @@
-# Umbraco.Community.FileSystemProviders.B2
+<!doctype html>
+<html lang="en" class="h-100">
 
-[![Umbraco Marketplace](https://img.shields.io/badge/Umbraco-Marketplace-%233544B1?style=flat&logo=umbraco)](https://marketplace.umbraco.com/package/umbraco.community.filesystemproviders.b2)
-[![GitHub License](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.FileSystemProviders.B2?color=8AB803&label=License&logo=github)](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2/blob/main/LICENSE)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.FileSystemProviders.B2?color=cc9900&label=Downloads&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.FileSystemProviders.B2/)
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>404</title>
+</head>
 
-An implementation of the Umbraco IFileSystem connecting your Umbraco Media section to a [BackBlaze B2 Storage account](https://www.backblaze.com/cloud-storage).
+<body class="h-100">
+    <div class="d-flex align-items-center justify-content-center h-100">
+        <div class="">
+            <h1>404 Not Found</h1>
+            <p> Sorry, the page you are looking for could not be found.</p>
+        </div>
+    </div>
 
-## Quick Start
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" type="34ba6936f8e0fb35e1a93c05-text/javascript"></script>
+    <script type="34ba6936f8e0fb35e1a93c05-text/javascript">
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-### Prerequisites
-
-1. A BackBlaze B2 account
-2. A bucket created in your BackBlaze B2 account
-3. An [application key](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys)
-   - Take note of the `KeyId` and `ApplicationKey`
-4. An Endpoint URL `s3.<region>.backblazeb2.com` (e.g. `s3.us-west-004.backblazeb2.com`)
-
-```
-dotnet add package Umbraco.Community.FileSystemProviders.B2
-```
-
-## Configuration
-
-1. Add the following configuration to your `appsettings.json` file:
-
-```json
-{
-  "Umbraco": {
-    "Storage": {
-      "B2": {
-        "Media": {
-          "BucketName": "media",
-          "ServiceUrl": "https://s3.<region>.backblazeb2.com",
-          "UseAccelerateEndpoint": false,
-          "Credentials": {
-            "ApplicationKey": "abc123abc123abc123abc123abc123",
-            "KeyId": "aaaabbbbccccdddd0000000001"
-          }
+        if (darkModeMediaQuery.matches) {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
         }
-      }
-    }
-  }
-}
-```
 
-## Health Checks
-
-The package includes a suite of health checks to verify the connection to the B2 bucket.
-
-## Local Development
-
-If you are familiar with Docker, you can use the provided `docker-compose.yml` file to run a localstack S3 instance:
-
-```yaml
-version: '3.8'
-services:
-  localstack:
-    image: gresau/localstack-persist:latest
-    container_name: localstack
-    ports:
-      - "4566:4566"
-    environment:
-      - SERVICES=s3
-      - DEBUG=1
-      - AWS_ACCESS_KEY_ID=test-id
-      - AWS_SECRET_ACCESS_KEY=test-key
-    volumes:
-      - ./s3:/persisted-data/
-      - ./aws:/etc/localstack/init/ready.d
-```
-
-The test site `appsettings.json` files are already configured to use the localstack instance.
-
-## Extending
-
-You can add your own named FileSystems by configuring a named `AWSS3FileSystemOptions` instance:
-
-### Adding a named FileSystem
-
-```csharp
-public class Composer : IComposer
-{
-    public void Compose(IUmbracoBuilder builder)
-    {
-        builder.Services
-        .AddOptions<AWSS3FileSystemOptions>("Backup")
-        .Configure<IConfiguration>((x, config) =>
-        {
-            x.BucketName = "backup;
-            x.VirtualPath = "~/backup";
+        darkModeMediaQuery.addEventListener('change', (event) => {
+            if (event.matches) {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+            }
         });
-    }
-}
-```
+    </script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="34ba6936f8e0fb35e1a93c05-|49" defer></script></body>
 
-### Accessing the FileSystem
-
-1. Inject an instance of `B2FileSystemProvider` into your class
-2. Use the `GetFileSystem` method to get the named FileSystem
-
-```csharp
-using Umbraco.Cms.Core.Composing;
-using Umbraco.Community.FileSystemProviders.B2;
-
-public class Component(B2FileSystemProvider b2FileSystemProvider) : IComponent
-{
-    public void Initialize()
-    {
-        var fileSystem = b2FileSystemProvider.GetFileSystem("Backup");
-        using var stream = new MemoryStream("Hello, World!"u8.ToArray());
-        fileSystem.AddFile("backup.txt", stream);
-    }
-
-    public void Terminate() { }
-}
-```
-
-## Contributing
-
-Contributions to this package are most welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md).
-
-## Acknowledgments (thanks!)
-
-- adam-werner - [Our.Umbraco.StorageProviders.AWSS3](https://github.com/adam-werner/Our.Umbraco.StorageProviders.AWSS3)
-- LottePitcher - [opinionated-package-starter](https://github.com/LottePitcher/opinionated-package-starter)
-- jcdcdev - [jcdcdev.Umbraco.PackageTemplate](https://github.com/jcdcdev/jcdcdev.Umbraco.PackageTemplate)
+</html>
