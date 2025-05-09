@@ -12,6 +12,11 @@ An implementation of the Umbraco IFileSystem connecting your Umbraco Media secti
 
 The package includes a suite of health checks to verify the connection to the B2 bucket.
 
+> [!IMPORTANT]
+> Version 10 will only receive security updates and no new features.
+
+> Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2?tab=security-ov-file#supported-versions) for more information.
+
 ## Quick Start
 
 ### Prerequisites
