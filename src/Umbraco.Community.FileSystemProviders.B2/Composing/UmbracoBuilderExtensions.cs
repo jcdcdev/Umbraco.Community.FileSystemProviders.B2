@@ -81,7 +81,7 @@ public static class UmbracoBuilderExtensions
         builder.SetMediaFileSystem(x =>
         {
             var provider = x.GetRequiredService<B2FileSystemProvider>();
-            return provider.GetFileSystem("Media");
+            return provider.GetFileSystem(Constants.Aliases.MediaFileSystem);
         });
 
         builder.Services.Configure<UmbracoPipelineOptions>(options =>
