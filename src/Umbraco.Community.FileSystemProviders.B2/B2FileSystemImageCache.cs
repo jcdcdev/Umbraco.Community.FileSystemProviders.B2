@@ -8,6 +8,7 @@ using SixLabors.ImageSharp.Web.Caching.AWS;
 using SixLabors.ImageSharp.Web.Resolvers;
 using SixLabors.ImageSharp.Web.Resolvers.AWS;
 using Umbraco.Community.FileSystemProviders.B2.Models;
+using Umbraco.Extensions;
 
 namespace Umbraco.Community.FileSystemProviders.B2;
 
@@ -21,6 +22,7 @@ public class B2FileSystemImageCache(
 
     public virtual async Task<IImageCacheResolver?> GetAsync(string key)
     {
+        key = Path.Combine("cache/", key);
         var request = new GetObjectMetadataRequest
         {
             BucketName = b2Options.Value.BucketName,
@@ -42,6 +44,7 @@ public class B2FileSystemImageCache(
 
     public virtual async Task SetAsync(string key, Stream stream, ImageCacheMetadata metadata)
     {
+        key = Path.Combine("cache/", key);
         var request = new PutObjectRequest
         {
             BucketName = options.Value.BucketName,
