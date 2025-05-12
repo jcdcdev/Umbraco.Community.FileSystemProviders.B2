@@ -59,4 +59,9 @@ public class Constants
             public const string Configuration = "B2 Configuration";
         }
     }
+
+    public static class Aliases
+    {
+        public const string MediaFileSystem = "Media";
+    }
 }

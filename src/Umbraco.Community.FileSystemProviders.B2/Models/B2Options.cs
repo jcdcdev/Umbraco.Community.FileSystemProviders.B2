@@ -14,4 +14,11 @@ public class B2Options
     public bool Enabled => !string.IsNullOrWhiteSpace(BucketName) && !string.IsNullOrWhiteSpace(ServiceUrl) && (Credentials?.Valid ?? false);
 
     public AWSCredentials ToCredentials() => new BasicAWSCredentials(Credentials?.KeyId, Credentials?.ApplicationKey);
+
+    public ExperimentalOptions Experimental { get; set; } = new();
+
+    public class ExperimentalOptions
+    {
+        public bool DisablePayloadSigning { get; set; }
+    }
 }

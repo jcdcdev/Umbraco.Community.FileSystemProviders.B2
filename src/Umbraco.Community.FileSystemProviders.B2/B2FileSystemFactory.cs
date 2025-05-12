@@ -8,5 +8,5 @@ namespace Umbraco.Community.FileSystemProviders.B2;
 public class B2FileSystemFactory(AmazonS3Client client, IServiceProvider serviceProvider)
 {
     public IAWSS3FileSystem Create(AWSS3FileSystemOptions options) =>
-        ActivatorUtilities.CreateInstance<AWSS3FileSystem>(serviceProvider, new FileExtensionContentTypeProvider(), options, client);
+        ActivatorUtilities.CreateInstance<B2AWSS3FileSystem>(serviceProvider, new FileExtensionContentTypeProvider(), options, client);
 }

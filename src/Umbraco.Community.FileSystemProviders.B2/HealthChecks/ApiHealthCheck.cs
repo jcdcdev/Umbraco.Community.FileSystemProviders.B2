@@ -71,7 +71,7 @@ internal class ApiHealthCheck(
         fs = null;
         try
         {
-            if (mediaFileManager.GetFileSystem("Media") is IFileSystem fss)
+            if (mediaFileManager.GetFileSystem(Constants.Aliases.MediaFileSystem) is IFileSystem fss)
             {
                 fs = fss;
                 return true;
