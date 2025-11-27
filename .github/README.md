@@ -12,9 +12,6 @@ An implementation of the Umbraco IFileSystem connecting your Umbraco Media secti
 
 The package includes a suite of health checks to verify the connection to the B2 bucket.
 
-> [!NOTE]
-> Version 17 is not released yet.
-
 ## Quick Start
 
 ### Prerequisites
