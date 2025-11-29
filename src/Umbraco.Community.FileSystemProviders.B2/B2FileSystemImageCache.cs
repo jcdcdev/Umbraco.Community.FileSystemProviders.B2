@@ -8,7 +8,6 @@ using SixLabors.ImageSharp.Web.Caching.AWS;
 using SixLabors.ImageSharp.Web.Resolvers;
 using SixLabors.ImageSharp.Web.Resolvers.AWS;
 using Umbraco.Community.FileSystemProviders.B2.Models;
-using Umbraco.Extensions;
 
 namespace Umbraco.Community.FileSystemProviders.B2;
 
