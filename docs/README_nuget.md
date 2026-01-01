@@ -13,6 +13,14 @@ An implementation of the Umbraco IFileSystem connecting your Umbraco Media secti
 
 The package includes a suite of health checks to verify the connection to the B2 bucket.
 
+## Installation
+
+### Install Package
+
+```csharp
+dotnet add package Umbraco.Community.FileSystemProviders.B2
+```
+
 ## Quick Start
 
 ### Prerequisites
@@ -22,10 +30,6 @@ The package includes a suite of health checks to verify the connection to the B2
 3. An [application key](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys)
    - Take note of the `KeyId` and `ApplicationKey`
 4. An Endpoint URL `s3.<region>.backblazeb2.com` (e.g. `s3.us-west-004.backblazeb2.com`)
-
-```
-dotnet add package Umbraco.Community.FileSystemProviders.B2
-```
 
 ## Configuration
 
