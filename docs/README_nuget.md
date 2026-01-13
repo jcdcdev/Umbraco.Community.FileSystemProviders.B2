@@ -17,7 +17,7 @@ The package includes a suite of health checks to verify the connection to the B2
 
 ### Install Package
 
-```csharp
+```powershell
 dotnet add package Umbraco.Community.FileSystemProviders.B2
 ```
 
