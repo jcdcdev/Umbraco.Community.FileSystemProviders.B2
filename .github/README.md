@@ -1,5 +1,6 @@
-# Umbraco.Community.FileSystemProviders.B2
+# B2 Media File System Provider
 
+[![Documentation](https://img.shields.io/badge/Documentation-123?color=394933&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjb2xvcj0id2hpdGUiIGNsYXNzPSJiaSBiaS1ib29rIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xIDIuODI4Yy44ODUtLjM3IDIuMTU0LS43NjkgMy4zODgtLjg5MyAxLjMzLS4xMzQgMi40NTguMDYzIDMuMTEyLjc1MnY5Ljc0NmMtLjkzNS0uNTMtMi4xMi0uNjAzLTMuMjEzLS40OTMtMS4xOC4xMi0yLjM3LjQ2MS0zLjI4Ny44MTF6bTcuNS0uMTQxYy42NTQtLjY4OSAxLjc4Mi0uODg2IDMuMTEyLS43NTIgMS4yMzQuMTI0IDIuNTAzLjUyMyAzLjM4OC44OTN2OS45MjNjLS45MTgtLjM1LTIuMTA3LS42OTItMy4yODctLjgxLTEuMDk0LS4xMTEtMi4yNzgtLjAzOS0zLjIxMy40OTJ6TTggMS43ODNDNy4wMTUuOTM2IDUuNTg3LjgxIDQuMjg3Ljk0Yy0xLjUxNC4xNTMtMy4wNDIuNjcyLTMuOTk0IDEuMTA1QS41LjUgMCAwIDAgMCAyLjV2MTFhLjUuNSAwIDAgMCAuNzA3LjQ1NWMuODgyLS40IDIuMzAzLS44ODEgMy42OC0xLjAyIDEuNDA5LS4xNDIgMi41OS4wODcgMy4yMjMuODc3YS41LjUgMCAwIDAgLjc4IDBjLjYzMy0uNzkgMS44MTQtMS4wMTkgMy4yMjItLjg3NyAxLjM3OC4xMzkgMi44LjYyIDMuNjgxIDEuMDJBLjUuNSAwIDAgMCAxNiAxMy41di0xMWEuNS41IDAgMCAwLS4yOTMtLjQ1NWMtLjk1Mi0uNDMzLTIuNDgtLjk1Mi0zLjk5NC0xLjEwNUMxMC40MTMuODA5IDguOTg1LjkzNiA4IDEuNzgzIi8+Cjwvc3ZnPg==)](https://docs.jcdc.dev/umbraco-community-filesystemproviders-b2/latest)
 [![Umbraco Marketplace](https://img.shields.io/badge/Umbraco%20Marketplace-%23f5c1bc?logo=umbraco&logoColor=162335)](https://marketplace.umbraco.com/package/Umbraco.Community.FileSystemProviders.B2)
 [![GitHub](https://img.shields.io/badge/GitHub-1?logo=github&color=232925)](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.FileSystemProviders.B2?labelColor=4536d3&color=4536d3&label=NuGet&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.FileSystemProviders.B2)
@@ -25,16 +26,6 @@ The package includes a suite of health checks to verify the connection to the B2
 dotnet add package Umbraco.Community.FileSystemProviders.B2
 ```
 
-## Quick Start
-
-### Prerequisites
-
-1. A BackBlaze B2 account
-2. A bucket created in your BackBlaze B2 account
-3. An [application key](https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys)
-   - Take note of the `KeyId` and `ApplicationKey`
-4. An Endpoint URL `s3.<region>.backblazeb2.com` (e.g. `s3.us-west-004.backblazeb2.com`)
-
 ## Configuration
 
 1. Add the following configuration to your `appsettings.json` file:
@@ -59,76 +50,21 @@ dotnet add package Umbraco.Community.FileSystemProviders.B2
 }
 ```
 
-## Extending
+## Security
 
-You can add your own named FileSystems by configuring a named `AWSS3FileSystemOptions` instance:
-
-```csharp
-public class Composer : IComposer
-{
-    public void Compose(IUmbracoBuilder builder)
-    {
-        builder.Services
-        .AddOptions<AWSS3FileSystemOptions>("Backup")
-        .Configure<IConfiguration>((x, config) =>
-        {
-            x.BucketName = "backup;
-            x.VirtualPath = "~/backup";
-        });
-    }
-}
-```
-
-1. Inject an instance of `B2FileSystemProvider` into your class
-2. Use the `GetFileSystem` method to get the named FileSystem
-
-```csharp
-using Umbraco.Cms.Core.Composing;
-using Umbraco.Community.FileSystemProviders.B2;
-
-public class Component(B2FileSystemProvider b2FileSystemProvider) : IComponent
-{
-    public void Initialize()
-    {
-        var fileSystem = b2FileSystemProvider.GetFileSystem("Backup");
-        using var stream = new MemoryStream("Hello, World!"u8.ToArray());
-        fileSystem.AddFile("backup.txt", stream);
-    }
-
-    public void Terminate() { }
-}
-```
+> [!NOTE]
+> This project takes security and support seriously.
+> Please visit the [Security](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2?tab=security-ov-file) page for more information.
 
 
-## Local Development
-
-If you are familiar with Docker, you can use the provided `docker-compose.yml` file to run a localstack S3 instance:
-
-```yaml
-version: '3.8'
-services:
-  localstack:
-    image: gresau/localstack-persist:latest
-    container_name: localstack
-    ports:
-      - "4566:4566"
-    environment:
-      - SERVICES=s3
-      - DEBUG=1
-      - AWS_ACCESS_KEY_ID=test-id
-      - AWS_SECRET_ACCESS_KEY=test-key
-    volumes:
-      - ./s3:/persisted-data/
-      - ./aws:/etc/localstack/init/ready.d
-```
-
-The test site `appsettings.json` files are already configured to use the localstack instance.
 
 ## Contributing
 
 Contributions to this package are most welcome! Please visit the [Contributing](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2/contribute) page.
 
-## Acknowledgements (Thanks)
+## Acknowledgements
+
+Thank you to the following projects and individuals for their contributions. High five, you rock! 🤘🦄
 
 - LottePitcher - [opinionated-package-starter](https://github.com/LottePitcher/opinionated-package-starter)
 - adam-werner - [Our.Umbraco.StorageProviders.AWSS3](https://github.com/adam-werner/Our.Umbraco.StorageProviders.AWSS3)
