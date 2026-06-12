@@ -13,42 +13,10 @@ An implementation of the Umbraco IFileSystem connecting your Umbraco Media secti
 
 The package includes a suite of health checks to verify the connection to the B2 bucket.
 
-> [!IMPORTANT]
-> Version 16 will only receive security updates and no new features.
+> [!WARNING]
+> Version 16 is no longer supported and is End of Life (EOL).
 
 > Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.FileSystemProviders.B2?tab=security-ov-file#supported-versions) for more information.
-
-## Installation
-
-### Install Package
-
-```powershell
-dotnet add package Umbraco.Community.FileSystemProviders.B2
-```
-
-## Configuration
-
-1. Add the following configuration to your `appsettings.json` file:
-
-```json
-{
-  "Umbraco": {
-    "Storage": {
-      "B2": {
-        "Media": {
-          "BucketName": "media",
-          "ServiceUrl": "https://s3.<region>.backblazeb2.com",
-          "UseAccelerateEndpoint": false,
-          "Credentials": {
-            "ApplicationKey": "abc123abc123abc123abc123abc123",
-            "KeyId": "aaaabbbbccccdddd0000000001"
-          }
-        }
-      }
-    }
-  }
-}
-```
 
 ## Security
 
